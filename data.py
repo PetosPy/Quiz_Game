@@ -1,35 +1,11 @@
-question_data = [
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "The word &quot;news&quot; originates from the first letters of the 4 main directions on a compass "
-                 "(North, East, West, South).",
-     "correct_answer": "False", "incorrect_answers": ["True"]},
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "The bikini is named after the &quot;Bikini Atoll&quot;, "
-                 "an island where the United States conducted tests on atomic bombs.",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "You are allowed to sell your soul on eBay.",
-     "correct_answer": "False", "incorrect_answers": ["True"]},
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "The French word to travel is &quot;Travail&quot;",
-     "correct_answer": "False", "incorrect_answers": ["True"]},
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "&quot;Santa Claus&quot; is a variety of melon.",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "The scientific name for the Southern Lights is Aurora Australis?",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "Haggis is traditionally ate on Burns Night.",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "The British organisation CAMRA stands for The Campaign for Real Ale.",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "The pickled gherkin was first added to hamburgers because a US health law required "
-                 "all fast-food to include a source of Vitamin C.",
-     "correct_answer": "False", "incorrect_answers": ["True"]},
-    {"category": "General Knowledge", "type": "boolean", "difficulty": "medium",
-     "question": "&quot;Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo.&quot; "
-                 "is a grammatically correct sentence.",
-     "correct_answer": "True", "incorrect_answers": ["False"]}]
+import requests
+
+parameters = {"amount": 10, "type": "boolean"}
+
+response = requests.get(url="https://opentdb.com/api.php", params=parameters)
+response.raise_for_status()
+data = response.json()
+question_data = data["results"]
+
+
+
